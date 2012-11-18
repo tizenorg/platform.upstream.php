@@ -37,7 +37,7 @@ BuildRequires:  pkgconfig(libcrypto)
 %define peardir           %{_datadir}/%{pkg_name}/PEAR
 %define php_sysconf       %{_sysconfdir}/%{pkg_name}
 %define _x11prefix %(pkg-config --variable=prefix xft)
-Version:        5.3.15
+Version:        5.3.18
 Release:        0
 Provides:       php
 Source0:        php-%{version}.tar.bz2
