@@ -1610,9 +1610,9 @@ PHP_FUNCTION(curl_copy_handle)
 	dupch->uses = 0;
 	ch->uses++;
 	if (ch->handlers->write->stream) {
-		Z_ADDREF_P(dupch->handlers->write->stream);
-		dupch->handlers->write->stream = ch->handlers->write->stream;
+		Z_ADDREF_P(ch->handlers->write->stream);
 	}
+	dupch->handlers->write->stream = ch->handlers->write->stream;
 	dupch->handlers->write->method = ch->handlers->write->method;
 	dupch->handlers->write->type   = ch->handlers->write->type;
 	if (ch->handlers->read->stream) {
@@ -2167,7 +2167,7 @@ string_copy:
 
 			convert_to_string_ex(zvalue);
 
-			if (!Z_STRLEN_PP(zvalue) || php_check_open_basedir(Z_STRVAL_PP(zvalue) TSRMLS_CC) || (PG(safe_mode) && !php_checkuid(Z_STRVAL_PP(zvalue), "rb+", CHECKUID_CHECK_MODE_PARAM))) {
+			if ((Z_STRLEN_PP(zvalue) && php_check_open_basedir(Z_STRVAL_PP(zvalue) TSRMLS_CC)) || (PG(safe_mode) && !php_checkuid(Z_STRVAL_PP(zvalue), "rb+", CHECKUID_CHECK_MODE_PARAM))) {
 				RETVAL_FALSE;
 				return 1;
 			}
