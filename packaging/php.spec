@@ -44,38 +44,6 @@ Source0:        php-%{version}.tar.bz2
 Source5:        README.macros
 Source6:        macros.php
 Source7:        install-pear-nozlib.phar
-Source8:        php-fpm.init
-#SUSE specific stuff
-Patch2:         php5-phpize.patch
-Patch3:         php5-apache_sapi_install.patch
-Patch4:         php5-php-config.patch
-Patch7:         php-5.3.1-systzdata-v7.patch
-#bugs
-Patch13:        php-5.2.9-BNC-457056.patch
-Patch19:        php-5.3.0-bnc513080.patch
-Patch20:        php-5.3.2-ini.patch
-# PATCH-FIX-UPSTREAM php5-autoconf-2.65.patch http://bugs.php.ney/bug.php?id=50291 dimstar@opensuse.org -- Build fails with autoconf > 2.63
-# Modified to work with PHP 5.3.7 release
-Patch22:        php-5.3.2-aconf26x.patch
-Patch24:        php-5.3.2-no-build-date.patch
-Patch25:        php-cloexec.patch
-Patch26:        php-5.3.4-pts.patch
-Patch27:        php-5.3.4-format-string-issues.patch
-Patch29:        php5-openssl.patch
-Patch30:        php-5.3.6-ini-date.timezone.patch
-Patch31:        php5-missing-extdeps.patch
-%ifarch x86_64
-Patch33:        php-5.3.6-gcc_builtins.patch
-%endif
-# following patch is to fix configure tests for crypt; the aim is to have php
-# built against glibc's crypt; problem is, that our glibc doesn't support extended
-# DES, so as soon as upstream fixes this, don't forgot to remove extended DES
-# from their checking as I indicated in crypt-tests.patch yet, or php will
-# silently use his own implementation again
-Patch36:        php-5.3.8-crypt-tests.patch
-# related to previous patch; !(defined(_REENTRANT) || defined(_THREAD_SAFE))
-Patch37:        php-5.3.8-no-reentrant-crypt.patch
-Patch40:        php-5.3.15-CVE-2012-3365.patch
 Url:            http://www.php.net
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Summary:        PHP5 Core Files
@@ -1003,32 +971,6 @@ Authors:
 %setup -q -n php-%{version} 
 %{__cp} %{S:5} .
 %{__cp} %{S:7} pear/
-%patch2
-%patch3
-%patch4
-%patch7
-%if 0%{?need_libxml2_hack}
-echo "***APPLY LIBXML2.7 FIX***"
-%patch13
-%else
-echo "***SKIPPING LIBMXL2.7 FIX ***"
-%endif
-%patch19
-%patch20
-%patch22
-%patch24
-%patch25
-%patch26
-%patch27
-%patch29
-%patch30
-%patch31
-%ifarch x86_64
-%patch33
-%endif
-%patch36
-%patch37
-%patch40
 # Safety check for API version change.
 vapi=`sed -n '/#define PHP_API_VERSION/{s/.* //;p}' main/php.h`
 if test "x${vapi}" != "x%{apiver}"; then
@@ -1236,8 +1178,6 @@ for f in %{buildroot}%{extension_dir}/*; do
 done
 # list of builtin modules
 builtin_modules=`./build-cli/sapi/cli/php -m | egrep -v '^(\[.*)?$' | sort | tr '\n' ' '`
-# update readme
-%{__sed} "s=@EXTERN_MODULES@=$extern_modules=;s=@BUILTIN_MODULES@=$builtin_modules=" php-suse-addons/README.SUSE > README.SUSE
 # directory for sessions
 %{__install} -d %{buildroot}/var/lib/%{pkg_name}
 # documentation
@@ -1262,7 +1202,7 @@ install -m 644 -c macros.php \
 
 %files
 %defattr(-, root, root)
-%doc README* CODING_STANDARDS CREDITS EXTENSIONS LICENSE NEWS TODO* php-suse-addons/test.php5
+%doc LICENSE
 %doc %{_mandir}/man1/*
 %dir %{php_sysconf}
 %dir %{php_sysconf}/conf.d
