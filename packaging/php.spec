@@ -6,7 +6,7 @@
 %define pkg_name php
 Name:           php
 
-BuildRequires:  autoconf
+#BuildRequires:  autoconf213
 BuildRequires:  bison
 BuildRequires:  libcares-devel
 BuildRequires:  curl-devel
@@ -986,12 +986,14 @@ if test "x${vzend}" != "x%{zendver}"; then
 fi
 
 %build
+%if 0
 # aclocal workaround - to be improved
 cat `aclocal --print-ac-dir`/{libtool,ltoptions,ltsugar,ltversion,lt~obsolete}.m4 >>aclocal.m4
 
 # Force use of system libtool:
 libtoolize --force --copy
 cat `aclocal --print-ac-dir`/{libtool,ltoptions,ltsugar,ltversion,lt~obsolete}.m4 >build/libtool.m4
+%endif
 
 # Regenerate configure scripts (patches change config.m4's)
 touch configure.in
@@ -1006,8 +1008,8 @@ done
 
 # regenerate configure etc.
 # workaround: suhosin-patch updates timestamp of configure, confusing buildconf
-%{__rm} -f configure
-./buildconf --force
+#%{__rm} -f configure
+#./buildconf --force
 # export flags
 CFLAGS="$RPM_OPT_FLAGS -O3 -fPIE -fPIC -DPIC -D_GNU_SOURCE -fno-strict-aliasing"
 CXXFLAGS="$RPM_OPT_FLAGS -O3 -fPIE -fPIC -DPIC -D_GNU_SOURCE -fno-strict-aliasing"
@@ -1216,12 +1218,11 @@ install -m 644 -c macros.php \
 
 %files devel
 %defattr(-, root, root)
-%doc README.macros
 %{_includedir}/%{pkg_name}
 %{_bindir}/phpize
 %{_bindir}/php-config
 %{_bindir}/pecl
-%{_datadir}/%{pkg_name}/build
+#%{_datadir}/%{pkg_name}/build
 %config %{_sysconfdir}/rpm/macros.php
 
 %files pear
