@@ -1222,7 +1222,7 @@ install -m 644 -c macros.php \
 %{_bindir}/phpize
 %{_bindir}/php-config
 %{_bindir}/pecl
-#%{_datadir}/%{pkg_name}/build
+/usr/lib/php/build
 %config %{_sysconfdir}/rpm/macros.php
 
 %files pear
