@@ -1227,7 +1227,6 @@ install -m 644 -c macros.php \
 
 %files pear
 %defattr(-, root, root)
-%doc pear/README.SUSE
 %{_bindir}/pear
 %config(noreplace) %{php_sysconf}/cli/pear.conf
 %{peardir}
