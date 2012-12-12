@@ -1011,11 +1011,10 @@ done
 #%{__rm} -f configure
 #./buildconf --force
 # export flags
-CFLAGS="$RPM_OPT_FLAGS -O3 -fPIE -fPIC -DPIC -D_GNU_SOURCE -fno-strict-aliasing"
-CXXFLAGS="$RPM_OPT_FLAGS -O3 -fPIE -fPIC -DPIC -D_GNU_SOURCE -fno-strict-aliasing"
+CFLAGS="$RPM_OPT_FLAGS -O3 -fPIC -DPIC -D_GNU_SOURCE -fno-strict-aliasing"
+CXXFLAGS="$RPM_OPT_FLAGS -O3 -fPIC -DPIC -D_GNU_SOURCE -fno-strict-aliasing"
 export CFLAGS
 export CXXFLAGS
-export LDFLAGS="-pie"
 export NO_INTERACTION=true
 # where to install extensions
 EXTENSION_DIR=%{extension_dir}
