@@ -851,7 +851,7 @@ install -m 644 -c macros.php \
 %dir %{_libdir}/%{pkg_name}
 %dir %{extension_dir}
 %dir %{_datadir}/%{pkg_name}
-%attr(0755, wwwrun, root) %dir %{_localstatedir}/lib/%{pkg_name}
+%attr(0755, root, root) %dir %{_localstatedir}/lib/%{pkg_name}
 
 %files devel
 %defattr(-, root, root)
