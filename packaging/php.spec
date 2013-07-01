@@ -49,6 +49,7 @@ Source0:        php-%{version}.tar.bz2
 Source5:        README.macros
 Source6:        macros.php
 Source7:        install-pear-nozlib.phar
+Source1001: 	php.manifest
 Requires:       timezone
 Provides:       php
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
@@ -615,6 +616,7 @@ PHP functions to read and write gzip (.gz) compressed files.
 
 %prep
 %setup -q -n php-%{version}
+cp %{SOURCE1001} .
 cp %{SOURCE5} .
 cp %{SOURCE7} pear/
 # Safety check for API version change.
@@ -840,6 +842,7 @@ install -m 644 -c macros.php \
 
 
 %files
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %doc LICENSE
 %doc %{_mandir}/man1/*
@@ -854,6 +857,7 @@ install -m 644 -c macros.php \
 %attr(0755, root, root) %dir %{_localstatedir}/lib/%{pkg_name}
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %{_includedir}/%{pkg_name}
 %{_bindir}/phpize
@@ -863,6 +867,7 @@ install -m 644 -c macros.php \
 %config %{_sysconfdir}/rpm/macros.php
 
 %files pear
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %{_bindir}/pear
 %config(noreplace) %{php_sysconf}/cli/pear.conf
@@ -872,99 +877,118 @@ install -m 644 -c macros.php \
 
 
 %files bcmath
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/bcmath.so
 %config(noreplace) %{php_sysconf}/conf.d/bcmath.ini
 
 %files bz2
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/bz2.so
 %config(noreplace) %{php_sysconf}/conf.d/bz2.ini
 
 %files calendar
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/calendar.so
 %config(noreplace) %{php_sysconf}/conf.d/calendar.ini
 
 %files ctype
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/ctype.so
 %config(noreplace) %{php_sysconf}/conf.d/ctype.ini
 
 %files curl
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/curl.so
 %config(noreplace) %{php_sysconf}/conf.d/curl.ini
 
 %files dba
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/dba.so
 %config(noreplace) %{php_sysconf}/conf.d/dba.ini
 
 %files dom
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/dom.so
 %config(noreplace) %{php_sysconf}/conf.d/dom.ini
 
 
 %files exif
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/exif.so
 %config(noreplace) %{php_sysconf}/conf.d/exif.ini
 
 %files fileinfo
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/fileinfo.so
 %config(noreplace) %{php_sysconf}/conf.d/fileinfo.ini
 
 %files ftp
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/ftp.so
 %config(noreplace) %{php_sysconf}/conf.d/ftp.ini
 
 %files gd
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/gd.so
 %config(noreplace) %{php_sysconf}/conf.d/gd.ini
 
 %files gettext
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/gettext.so
 %config(noreplace) %{php_sysconf}/conf.d/gettext.ini
 
 %files gmp
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/gmp.so
 %config(noreplace) %{php_sysconf}/conf.d/gmp.ini
 
 %files iconv
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/iconv.so
 %config(noreplace) %{php_sysconf}/conf.d/iconv.ini
 
 
 %files intl
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/intl.so
 %config(noreplace) %{php_sysconf}/conf.d/intl.ini
 
 %files json
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/json.so
 %config(noreplace) %{php_sysconf}/conf.d/json.ini
 
 %files mbstring
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/mbstring.so
 %config(noreplace) %{php_sysconf}/conf.d/mbstring.ini
 
 
 %files openssl
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/openssl.so
 %config(noreplace) %{php_sysconf}/conf.d/openssl.ini
 
 %files phar
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/phar.so
 %config(noreplace) %{php_sysconf}/conf.d/phar.ini
@@ -972,6 +996,7 @@ install -m 644 -c macros.php \
 %{_bindir}/phar.phar
 
 %files pcntl
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/pcntl.so
 %config(noreplace) %{php_sysconf}/conf.d/pcntl.ini
@@ -979,28 +1004,33 @@ install -m 644 -c macros.php \
 
 
 %files posix
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/posix.so
 %config(noreplace) %{php_sysconf}/conf.d/posix.ini
 
 
 %files readline
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/readline.so
 %config(noreplace) %{php_sysconf}/conf.d/readline.ini
 
 %files shmop
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/shmop.so
 %config(noreplace) %{php_sysconf}/conf.d/shmop.ini
 
 
 %files soap
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/soap.so
 %config(noreplace) %{php_sysconf}/conf.d/soap.ini
 
 %files sockets
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/sockets.so
 %config(noreplace) %{php_sysconf}/conf.d/sockets.ini
@@ -1008,56 +1038,67 @@ install -m 644 -c macros.php \
 
 
 %files sysvmsg
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/sysvmsg.so
 %config(noreplace) %{php_sysconf}/conf.d/sysvmsg.ini
 
 %files sysvsem
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/sysvsem.so
 %config(noreplace) %{php_sysconf}/conf.d/sysvsem.ini
 
 %files sysvshm
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/sysvshm.so
 %config(noreplace) %{php_sysconf}/conf.d/sysvshm.ini
 
 %files tokenizer
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/tokenizer.so
 %config(noreplace) %{php_sysconf}/conf.d/tokenizer.ini
 
 %files wddx
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/wddx.so
 %config(noreplace) %{php_sysconf}/conf.d/wddx.ini
 
 %files xmlrpc
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/xmlrpc.so
 %config(noreplace) %{php_sysconf}/conf.d/xmlrpc.ini
 
 %files xmlreader
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/xmlreader.so
 %config(noreplace) %{php_sysconf}/conf.d/xmlreader.ini
 
 %files xmlwriter
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/xmlwriter.so
 %config(noreplace) %{php_sysconf}/conf.d/xmlwriter.ini
 
 %files xsl
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/xsl.so
 %config(noreplace) %{php_sysconf}/conf.d/xsl.ini
 
 %files zip
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/zip.so
 %config(noreplace) %{php_sysconf}/conf.d/zip.ini
 
 %files zlib
+%manifest %{name}.manifest
 %defattr(644,root,root,755)
 %{extension_dir}/zlib.so
 %config(noreplace) %{php_sysconf}/conf.d/zlib.ini
