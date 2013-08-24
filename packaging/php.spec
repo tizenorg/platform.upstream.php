@@ -44,7 +44,7 @@ Release:        0
 License:        PHP-3.01
 Summary:        PHP5 Core Files
 Url:            http://www.php.net
-Group:          Development/Languages/Other
+Group:          Development/Languages
 Source0:        php-%{version}.tar.bz2
 Source5:        README.macros
 Source6:        macros.php
@@ -64,7 +64,6 @@ Additional documentation is available in package php-doc.
 
 %package devel
 Summary:        Include files of PHP5
-Group:          Development/Languages/C and C++
 #this is required by the installed  development headers
 Requires:       %{name} = %{version}
 #this is needed for "pecl" functionality
@@ -89,7 +88,6 @@ resources available in the Links section. PHP5 is the latest version.
 
 %package pear
 Summary:        PHP Extension and Application Repository
-Group:          Development/Libraries/PHP
 Requires:       %{name}-zlib = %{version}
 Provides:       php-pear
 BuildArch:      noarch
@@ -103,7 +101,6 @@ See http://pear.php.net/manual/ for more details.
 
 %package bcmath
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-bcmath
 
@@ -113,7 +110,6 @@ represented as strings.
 
 %package bz2
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-bz2
 
@@ -122,7 +118,6 @@ PHP functions to read and write bzip2 (.bz2) compressed files.
 
 %package calendar
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-calendar
 
@@ -131,7 +126,6 @@ PHP functions for converting between different calendar formats.
 
 %package ctype
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-ctype
 
@@ -141,7 +135,6 @@ certain character class according to the current locale.
 
 %package curl
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-curl
 
@@ -152,7 +145,6 @@ types.
 
 %package dba
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-dba
 
@@ -165,7 +157,6 @@ through the ODBC functions.)
 
 %package dom
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-dom
 
@@ -174,7 +165,6 @@ This module adds DOM support.
 
 %package enchant
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-enchant
 
@@ -183,7 +173,6 @@ Enchant is the PHP binding for the Enchant library. Enchant steps in to provide 
 
 %package exif
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Requires:       %{name}-mbstring = %{version}
 Provides:       php-exif
@@ -194,7 +183,6 @@ stored in headers of JPEG and TIFF images.
 
 %package fileinfo
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-fileinfo
 
@@ -203,7 +191,6 @@ The functions in this module try to guess the content type and encoding of a fil
 
 %package ftp
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Requires:       %{name}-openssl = %{version}
 Provides:       php-ftp
@@ -214,7 +201,6 @@ Protocol (FTP) as defined in rfc959.
 
 %package gd
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-gd
 
@@ -225,7 +211,6 @@ more convenient: PHP can output image streams directly to a browser.
 
 %package gettext
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-gettext
 
@@ -235,7 +220,6 @@ can be used to internationalize your PHP applications.
 
 %package gmp
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-gmp
 
@@ -245,7 +229,6 @@ library.
 
 %package iconv
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-iconv
 
@@ -254,7 +237,6 @@ PHP interface to iconv character set conversion facility.
 
 %package imap
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-imap
 
@@ -265,7 +247,6 @@ POP3 and local mailbox access methods.
 
 %package intl
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-intl
 
@@ -274,7 +255,6 @@ Internationalization extension (further is referred as Intl) is a wrapper for IC
 
 %package json
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-json
 
@@ -283,7 +263,6 @@ Support for JSON (JavaScript Object Notation) serialization.
 
 %package ldap
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Requires:       %{name}-openssl = %{version}
 Provides:       php-ldap
@@ -293,7 +272,6 @@ PHP interface to Lightweight Directory Access Protocol (LDAP).
 
 %package mbstring
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-mbstring
 
@@ -303,7 +281,6 @@ other utility functions such as conversion functions.
 
 %package mcrypt
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-mcrypt
 
@@ -313,7 +290,6 @@ block algorithms.
 
 %package mssql
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Provides:       php-mssql
 Provides:       php_any_db
 
@@ -322,7 +298,6 @@ PHP functions for access to MSSQL database servers.
 
 %package mysql
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Requires:       %{name}-pdo = %{version}
 Provides:       php-mysql
@@ -337,7 +312,6 @@ PHP functions for access to MySQL database servers.
 
 %package odbc
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Requires:       %{name}-pdo = %{version}
 Provides:       php-odbc
@@ -348,7 +322,6 @@ This module adds ODBC support.
 
 %package openssl
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-openssl
 
@@ -357,7 +330,6 @@ This module adds OpenSSL support.
 
 %package pcntl
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-pcntl
 
@@ -370,7 +342,6 @@ improve/better implement this functionality.
 
 %package phar
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-phar
 
@@ -380,7 +351,6 @@ single file called a "phar" (PHP Archive) for easy distribution and installation
 
 %package pdo
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-pdo
 
@@ -397,7 +367,6 @@ about getting the data and not about PHP internals.
 
 %package pgsql
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Requires:       %{name}-pdo = %{version}
 Provides:       php-pgsql
@@ -411,7 +380,6 @@ both traditional pgsql and pdo_pgsql drivers.
 
 %package posix
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-posix
 
@@ -420,7 +388,6 @@ This module allows to use POSIX-like functions in PHP.
 
 %package readline
 Summary:        PHP5 readline extension
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-readline
 
@@ -430,7 +397,6 @@ as PHP interactive mode (php -a)
 
 %package shmop
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-shmop
 
@@ -440,7 +406,6 @@ segments.
 
 %package snmp
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-snmp
 
@@ -449,7 +414,6 @@ PHP functions for SNMP.
 
 %package soap
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-soap
 
@@ -461,7 +425,6 @@ supports subsets of SOAP 1.1, SOAP 1.2 and WSDL 1.1 specifications.
 
 %package sockets
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-sockets
 
@@ -472,7 +435,6 @@ server as well as a client. This extension is experimental!
 
 %package sqlite
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Requires:       %{name}-pdo = %{version}
 Provides:       php-sqlite = %{version}
@@ -497,7 +459,6 @@ This package includes sqlite and pdo_sqlite modules for sqlite version
 
 %package sysvmsg
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-sysvmsg
 
@@ -506,7 +467,6 @@ This module provides System V IPC support.
 
 %package sysvsem
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-sysvsem
 
@@ -515,7 +475,6 @@ PHP interface for System V semaphores.
 
 %package sysvshm
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-sysvshm
 
@@ -524,7 +483,6 @@ PHP interface for System V shared memory.
 
 %package tidy
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-tidy
 
@@ -536,7 +494,6 @@ PHP or ASP within them using OO constructs.
 
 %package tokenizer
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-tokenizer
 
@@ -548,7 +505,6 @@ with the language specification at the lexical level.
 
 %package wddx
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-wddx
 
@@ -557,7 +513,6 @@ PHP functions for Web Distributed Data Exchange.
 
 %package xmlrpc
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-xmlrpc
 
@@ -566,7 +521,6 @@ This module adds XMLRPC-EPI support.
 
 %package xsl
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Requires:       %{name}-dom = %{version}
 Provides:       php-xsl
@@ -576,7 +530,6 @@ This module adds new XSL support to PHP.
 
 %package xmlreader
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Requires:       %{name}-dom = %{version}
 Provides:       php-xmlreader
@@ -587,7 +540,6 @@ access to XML data. It is based upon the xmlTextReader API from libxml.
 
 %package xmlwriter
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-xmlwriter
 
@@ -598,7 +550,6 @@ files containing XML data.
 
 %package zip
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-zip
 
@@ -607,7 +558,6 @@ Zip is an extension to create, modify and read zip files.
 
 %package zlib
 Summary:        PHP5 Extension Module
-Group:          Development/Libraries/PHP
 Requires:       %{name} = %{version}
 Provides:       php-zlib
 
@@ -844,7 +794,7 @@ install -m 644 -c macros.php \
 %files
 %manifest %{name}.manifest
 %defattr(-, root, root)
-%doc LICENSE
+%license LICENSE
 %doc %{_mandir}/man1/*
 %dir %{php_sysconf}
 %dir %{php_sysconf}/conf.d
