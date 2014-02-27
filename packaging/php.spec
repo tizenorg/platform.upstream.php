@@ -1,3 +1,4 @@
+%bcond_with x
 #
 
 %define suhosin_version 0.9.33
@@ -33,7 +34,9 @@ BuildRequires:  pkgconfig(libpcre)
 BuildRequires:  pkgconfig(libpng12)
 BuildRequires:  pkgconfig(libxslt)
 BuildRequires:  pkgconfig(rpm)
+%if %{with x}
 BuildRequires:  pkgconfig(xpm)
+%endif
 
 %define extension_dir     %{_libdir}/%{pkg_name}/extensions
 %define peardir           %{_datadir}/%{pkg_name}/PEAR
@@ -690,7 +693,9 @@ Build cli \
     --with-curl=shared \
     --with-gd=shared \
         --enable-gd-native-ttf \
+%if %{with x}
         --with-xpm-dir=%{_x11prefix} \
+%endif
         --with-freetype-dir=%{_prefix} \
         --with-png-dir=%{_prefix} \
         --with-jpeg-dir=%{_prefix} \
