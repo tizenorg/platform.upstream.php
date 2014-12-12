@@ -31,7 +31,7 @@ BuildRequires:  pkgconfig(libcares)
 BuildRequires:  pkgconfig(libcrypto)
 BuildRequires:  pkgconfig(libedit)
 BuildRequires:  pkgconfig(libpcre)
-BuildRequires:  pkgconfig(libpng12)
+BuildRequires:  pkgconfig(libpng)
 BuildRequires:  pkgconfig(libxslt)
 BuildRequires:  pkgconfig(rpm)
 %if %{with x}
